@@ -9,47 +9,42 @@
 <body>
 
 <div id="app" v-cloak>
-	<p>{{ fullName () }}</p>
+	<p>{{ fullName }}</p>
+	<p>{{typeof age}}</p>
+	
 	<p><a :href="url" target="_blank">Google</a></p>
-	<!--<p><a v-bind:href="url" target="_blank">Google</a></p>-->
 	<p v-html='raw_url'></p>
 	
-	<p>{{age}}</p>
+	<hr/>
+	
+	<label>First Name
+		<input type="text" v-model.lazy.trim="firstName"/>
+	</label>
 	
 	<hr/>
 	
-	<label>First Name</label>
-	<input type="text" v-model="firstName"/>
+	<label>Middle Name
+		<input type="text" @keyup.enter="updateMiddleName"/>
+	</label>
 	
 	<hr/>
 	
-	<label>Middle Name</label>
-	<input type="text" @keyup.enter="updateMiddleName"/>
-	
-	<hr/>
-	
-	<label>Last Name</label>
-	<!--<input type="text" v-model="lastName"/>-->
-	<!--this is better-->
-	<!--event modifier:-->
-	<!--@input.prevent === event.preventDefault()-->
-	<input type="text" :value="lastName" @input="updateLastName('Last Name event triggered!', $event)"/>
+	<label>Last Name
+		<input type="text" :value="lastName" @input="updateLastName('Last Name event triggered!', $event)"/>
+	</label>
 	
 	<hr>
 	
+	<!--<label>Age<input type="text" v-model="age"></label>-->
+	<label>Age<input type="number" v-model.number="age"></label>
+	
 	<button type="button" @click="increment">Increment</button>
-	<!--<button type="button" v-on:click="increment">Increment</button>-->
-	<!--<button type="button" v-on:click="age&#45;&#45;">Decrement</button>-->
 	<button type="button" @click="age--">Decrement</button>
 </div>
 
-<!-- <div id="app2">
-	{{ firstName }}
-	{{ lastName }}
-</div> -->
-
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!--<script src="https://unpkg.com/vue@next"></script>-->
 <script src="app.js"></script>
 </body>
 
