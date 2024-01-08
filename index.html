@@ -9,7 +9,6 @@
 <body>
 
 <div id="app" v-cloak>
-	hello
 	<p>{{ fullName () }}</p>
 	<p><a :href="url" target="_blank">Google</a></p>
 	<!--<p><a v-bind:href="url" target="_blank">Google</a></p>-->
@@ -22,16 +21,26 @@
 	<label>First Name</label>
 	<input type="text" v-model="firstName"/>
 	
+	<hr/>
+	
+	<label>Middle Name</label>
+	<input type="text" @keyup.enter="updateMiddleName"/>
+	
+	<hr/>
+	
 	<label>Last Name</label>
 	<!--<input type="text" v-model="lastName"/>-->
 	<!--this is better-->
+	<!--event modifier:-->
+	<!--@input.prevent === event.preventDefault()-->
 	<input type="text" :value="lastName" @input="updateLastName('Last Name event triggered!', $event)"/>
 	
 	<hr>
 	
 	<button type="button" @click="increment">Increment</button>
 	<!--<button type="button" v-on:click="increment">Increment</button>-->
-	<button type="button" v-on:click="age--">Decrement</button>
+	<!--<button type="button" v-on:click="age&#45;&#45;">Decrement</button>-->
+	<button type="button" @click="age--">Decrement</button>
 </div>
 
 <!-- <div id="app2">
