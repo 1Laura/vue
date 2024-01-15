@@ -1,50 +1,31 @@
-<!DOCTYPE html>
-<html lang="EN">
+<!DOCTYPE>
+<html>
 
 <head>
 	<title>VueJS Course</title>
-	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 
 <body>
-
-<div id="app" v-cloak>
-	<p>{{ fullName }}</p>
-	<p>{{typeof age}}</p>
-	
-	<p><a :href="url" target="_blank">Google</a></p>
-	<p v-html='raw_url'></p>
-	
-	<hr/>
-	
-	<label>First Name
-		<input type="text" v-model.lazy.trim="firstName"/>
+<div id="app">
+	<label>
+		<input type="checkbox" v-model="isPurple" /> Purple
 	</label>
 	
-	<hr/>
+	<select v-model="selectedColor">
+		<option value="">White</option>
+		<option value="text-black">Black</option>
+		<option value="text-orange">Orange</option>
+	</select>
 	
-	<label>Middle Name
-		<input type="text" @keyup.enter="updateMiddleName"/>
-	</label>
-	
-	<hr/>
-	
-	<label>Last Name
-		<input type="text" :value="lastName" @input="updateLastName('Last Name event triggered!', $event)"/>
-	</label>
-	
-	<hr>
-	
-	<!--<label>Age<input type="text" v-model="age"></label>-->
-	<label>Age<input type="number" v-model.number="age"></label>
-	
-	<button type="button" @click="increment">Increment</button>
-	<button type="button" @click="age--">Decrement</button>
+	<!--<div class="circle" :class="{purple: isPurple}">-->
+	<!--	<div class="circle" :class="circle_classes">-->
+			<div class="circle" :class="[selectedColor, circle_classes]">
+		Hi!
+	</div>
 </div>
 
-
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<!--<script src="https://unpkg.com/vue@next"></script>-->
 <script src="app.js"></script>
 </body>
 
