@@ -24,6 +24,12 @@
 	
 	<p v-else>v-else</p>
 	
+	<i v-show="mode == 1">v-show</i>
+	
+	<!--You should use the v-show directive if the element is toggled frequently.	-->
+	<!--https://vuejs.org/guide/essentials/conditional.html-->
+	
+	<br>
 	<select v-model="mode">
 		<option value="1">v-if</option>
 		<option value="2">v-else-if</option>
