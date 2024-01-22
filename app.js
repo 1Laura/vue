@@ -1,7 +1,7 @@
 let vm = Vue.createApp ({
 	data () {
 		return {
-			mode:1
+			birds:['Pigeons', 'Eagles', 'Doves']
 		}
 	}
 }).mount ('#app');
