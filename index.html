@@ -8,31 +8,21 @@
 
 <body>
 <div id="app">
-	<p v-if="mode == 1"> Showing v-if directive content</p>
-	<!--<p>Bonus content</p>-->
-	<!--<h3 v-else-if="mode == 2">v-else-if</h3>-->
-	<!--not use-->
-	<div v-else-if="mode == 2">
-		<p>Bonus content</p>
-		<h3>v-else-if</h3>
-	</div>
+	<ul>
+		<li v-for="(bird, index) in birds" :class="bird" :key="bird">
+		{{bird}} - {{index}}
+		</li>
+	</ul>
 	
-	<template v-else-if="mode == 2">
-		<p>Bonus content</p>
-		<h3>v-else-if</h3>
-	</template>
+	<hr>
 	
-	<p v-else>v-else</p>
-	
-	<i v-show="mode == 1">v-show</i>
-		<!--You should use the v-show directive if the element is toggled frequently.	-->
-	<!--https://vuejs.org/guide/essentials/conditional.html-->
-		<br>
-	<select v-model="mode">
-		<option value="1">v-if</option>
-		<option value="2">v-else-if</option>
-		<option value="3">v-else</option>
-	</select>
+	<ul>
+		<li v-for="person in people">
+			<div v-for="(value, key, index) in person">
+				{{key}}: {{value}} - Index: {{index}}
+			</div>
+		</li>
+	</ul>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
