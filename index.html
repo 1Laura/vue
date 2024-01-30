@@ -3,26 +3,18 @@
 
 <head>
 	<title>VueJS Course</title>
-	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 
 <body>
 <div id="app">
-	<ul>
-		<li v-for="(bird, index) in birds" :class="bird" :key="bird">
-		{{bird}} - {{index}}
-		</li>
-	</ul>
+	<button type="button" class="move" @click="move">Move to Bottom</button>
 	
-	<hr>
-	
-	<ul>
-		<li v-for="person in people">
-			<div v-for="(value, key, index) in person">
-				{{key}}: {{value}} - Index: {{index}}
-			</div>
-		</li>
-	</ul>
+	<div class="card" v-for="person in people" :key="person.name">
+		<h3>{{person.name}}</h3>
+		<p>{{person.message}}</p>
+		<input type="text">
+	</div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
